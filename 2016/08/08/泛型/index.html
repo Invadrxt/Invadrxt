@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="welcome to wxt's blog!"><title>泛型 | 晓甜不甜的博客！</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/blog/favicon.ico"><link rel="apple-touch-icon" href="/blog/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/blog/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">泛型</h1><a id="logo" href="/blog/.">晓甜不甜的博客！</a><p class="description"></p></div><div id="nav-menu"><a href="/blog/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/blog/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/blog/about/"><i class="fa fa-user"> 关于</i></a><a href="/blog/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">泛型</h1><div class="post-meta">Aug 8, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p><strong>泛型：</strong><br>&emsp;(1)为什么会出现泛型？<br>因为集合存放的数据类型不固定，故往集合里面存放元素时，存在安全隐患，<br>如果在定义集合时，可以想定义数组一样指定数据类型，那么就可以解决该类安全问题。<br>JDK1.5后出现了泛型，用于解决集合框架的安全问题。<br>泛型是一个类型安全机制。</p>
+<p>&emsp;(2)泛型定义格式：通过&lt;&gt;来定义要操作的引用数据类型<br>ArrayList<string> al = new ArrayList<string>;</string></string></p>
+<p>&emsp;(3)泛型的好处：<br>将运行时期出现的ClassCastException(类型转换异常)问题转移到编译时期；<br>避免了强制转换的麻烦</p>
+<p>&emsp;(4)什么时候定义泛型？<br>泛型在集合框架中很常见，只要见到&lt;&gt;就要定义泛型。其实&lt;&gt;就是用来接收类型的。<br>当使用集合时，将集合中要存储的数据类型作为参数传递到&lt;&gt;中即可</p>
+<p>&emsp;(5)泛型的形式<br>泛型类：即自定义泛型类<br>&emsp;&emsp;A：当类中要操作的引用数据类型不确定时，早起定义Object来完成扩展，现在定义泛型来完成<br>&emsp;&emsp;B：局限性：泛型类定义的泛型，在整个类中有效，如果该泛型类的方法被调用，<br>&emsp;当泛型类的对象明确要操作的类型后，所有要操作的类型就被固定。<br>&emsp;泛型方法：泛型放在返回值前面，修饰符的后面<br>&emsp;&emsp;A:为了避免泛型类的局限性，让不同方法可以操作不同的类型，而且类型还不确定，则可以将泛型定义在方法上<br>&emsp;&emsp;B:特殊之处：静态方法不可以反问类上定义的泛型<br> 如果静态方法操作的应用数据类型不确定，可以讲泛型定义在静态方法上</p>
+<p><strong>泛型接口：</strong><br>&emsp;当泛型定义在接口上时，则子类中要指定实现接口类型，同时还可以子类也可以定义为泛型类</p>
+<p>&emsp;(6)泛型的高级应用：？通配符<br>&emsp;当指定两种泛型的集合，则迭代时也要定义两种泛型的迭代器，麻烦，此时可通过将迭代器的泛型<br> 改为？，如:<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Iterator&lt;?&gt; it=al.iterator();</div></pre></td></tr></table></figure></p>
+<p><strong>两种泛型限定</strong><br>向上限定： ? extends E  ;E可以接收E类型或者E的子类<br>向下限定： ? super E  ;E可以接收E类型或者E的父类</p>
+<p><strong>高级for循环</strong><br>(1)JDK1.5新特性，代替迭代器使用时的不爽，简化书写，底层原理是迭代器凡是支持迭代器的都支持高级for循环<br>  &emsp;高级for循环，只用于集合和数组的遍历，集合只能用Collection不能用Map集合<br> &emsp; 只能把Map集合转化成Set集合，才能用for循环。</p>
+<p>(2)格式<br>for(数据类型 变量名:被遍历的集合(Collection)或者数组)<br>{</p>
+<p>}</p>
+<p><strong>(3)局限性：</strong></p>
+<ol>
+<li>必须要有遍历的目标</li>
+<li>对集合或者数组进行遍历时，只能获取集合元素，不能对集合元素进行操作</li>
+<li>迭代器除了遍历，还可以进行remove操作集合中的元素</li>
+<li>列表迭代器还可以在遍历过程中进行增删改查的操作</li>
+</ol>
+<p><strong>(4)传统for循环和高级for循环的区别</strong></p>
+<ol>
+<li>高级for循环有一个局限性，就是必须要有遍历的目标(集合或者数组)</li>
+<li>遍历数组时建议使用传统for循环，因为可以定义角标，比如打印100次helloworld时用传统for循环方便</li>
+</ol>
+<p><strong>可变参数</strong><br>(1)数组的可变参数<br>格式：<br>int… arr</p>
+<p>(3)方法的可变参数<br>格式：<br>public static void show(String str，int… arr)<br>{</p>
+<p>}<br>⚠️ 可变参数一定要放在参数列表的最后面</p>
+<p><strong>静态导入：</strong></p>
+<ol>
+<li>import static java.util.Arrays.*  导入的是Arrays这个类中所有的静态方法</li>
+<li>当类名重名时，需要制定具体的报名</li>
+<li>当方法重名时，需要制定具体所属的对象或者类</li>
+</ol>
+<p><strong>Collections类：</strong><br>(1)此类完全由在 collection 上进行操作或返回 collection 的静态方法组成。<br>(2)静态方法摘要：</p>
+<ul>
+<li>static <t> boolean addAll(Collection&lt;? super T&gt; c, T… elements)</t></li>
+<li>将所有指定元素添加到指定 collection 中。</li>
+<li>static <t> void fill(List&lt;? super T&gt; list, T obj)</t></li>
+<li>使用指定元素替换指定列表中的所有元素。</li>
+<li>static <t> boolean replaceAll(List<t> list, T oldVal, T newVal)</t></t></li>
+<li>使用另一个值替换列表中出现的所有某一指定值。</li>
+<li>static void reverse(List&lt;?&gt; list)</li>
+<li>反转指定列表中元素的顺序。</li>
+<li>static <t> Comparator<t>  reverseOrder()</t></t></li>
+<li>返回一个比较器，它强行逆转实现了 Comparable 接口的对象 collection 的自然顺序</li>
+<li>static <t> Comparator<t> reverseOrder(Comparator<t> cmp)</t></t></t></li>
+<li>返回一个比较器，它强行逆转指定比较器的顺序。</li>
+</ul>
+<p>(3)Collections类特牛的方法：</p>
+<ol>
+<li>集合有一个共同的缺点，那就是线程不安全，被多线程操作时，容易出现问题，虽然可以自己加锁</li>
+<li><p>但是麻烦。Collections提供特牛的方法，就是给它一个不同步的集合，它返回一个同步的安全的集合</p>
+</li>
+<li><p>static <t> Collection<t> synchronizedCollection(Collection<t> c)</t></t></t></p>
+</li>
+<li>返回指定 collection 支持的同步（线程安全的）collection。</li>
+<li>static <t> List<t>  synchronizedList(List<t> list)</t></t></t></li>
+<li>返回指定列表支持的同步（线程安全的）列表。</li>
+<li>static <k,v> Map<k,v> synchronizedMap(Map<k,v> m)</k,v></k,v></k,v></li>
+<li>返回由指定映射支持的同步（线程安全的）映射。</li>
+<li>static <t> Set<t> synchronizedSet(Set<t> s)</t></t></t></li>
+<li>返回指定 set 支持的同步（线程安全的）set。</li>
+<li>static <k,v> SortedMap<k,v> synchronizedSortedMap(SortedMap<k,v> m)</k,v></k,v></k,v></li>
+<li>返回指定有序映射支持的同步（线程安全的）有序映射。</li>
+<li>static <t> SortedSet<t>  synchronizedSortedSet(SortedSet<t> s)</t></t></t></li>
+<li>返回指定有序 set 支持的同步（线程安全的）有序 set。</li>
+</ol>
+<p><strong>Arrays类：</strong></p>
+<ol>
+<li>此类包含用来操作数组（比如排序和搜索）的各种方法。里面都是静态方法。</li>
+<li>如果指定数组引用为 null，则此类中的方法都会抛出 NullPointerException。</li>
+</ol>
+<p>(1)静态方法摘要：</p>
+<blockquote>
+<p>static <t> List<t> asList(T… a)<br>返回一个受指定数组支持的固定大小的列表。<br>注意：<br>&emsp;A:该方法将一个数组变成集合后，不可以使用集合的增删方法，因为数组的长度是固定的！如果增删，则发生UnsupportedOprationException(不支持操作异常)<br>&emsp;B:如果数组中的元素都是基本数据类型，则该数组变成集合时，会将该数组作为集合的一个<br> 元素出入集合<br>&emsp;C:如果数组中的元素都是对象，如String，那么数组变成集合后，数组中的元素就直接转成集合中的元素</t></t></p>
+</blockquote>
+<p><strong>数组变集合以及集合变数组的对比：</strong><br>(1)数组变集合：</p>
+<blockquote>
+<p>方法：static <t> List<t> asList(T… a) 返回一个受指定数组支持的固定大小的列表。<br>好处：可以使用集合的思想和方法操作数组中的元素，数组是一个对象，但是数组中的功能很少</t></t></p>
+</blockquote>
+<p>(2)集合变数组：</p>
+<blockquote>
+<p>方法：Collction中的toArray方法<br>好处：可以限定对集合元素的操作，防止对集合的元素进行增删，因为数组长度是固定的。</p>
+</blockquote>
+<p><strong>Collections类和Arrays类的使用。(重点)</strong><br>A:Collections<br>排序<br>二分查找<br>发转<br>B:Arrays<br>把数组变成字符串输出<br>排序<br>二分查找</p>
+<p><strong>System：</strong><br>&emsp;(1)描述系统信息的类<br>&emsp;(2)该类没有构造方法，该类的方法和属性都是静态的<br>&emsp;(3)字段摘要：</p>
+<ol>
+<li>static InputStream in  “标准”输入流。   </li>
+<li>static PrintStream out  “标准”输出流。<br>(4)方法摘要：</li>
+</ol>
+<ul>
+<li>static void exit(int status) 终止当前正在运行的 Java 虚拟机。</li>
+<li>static void gc() 运行垃圾回收器。</li>
+<li>static Properties getProperties()  确定当前的系统属性          </li>
+<li>static String getProperty(String key) 获取指定键指示的系统属性。     </li>
+<li>static String getProperty(String key, String def) 获取用指定键描述的系统属性。</li>
+<li>static void setIn(InputStream in) 重新分配“标准”输入流。           </li>
+<li>static void setOut(PrintStream out) 重新分配“标准”输出流。</li>
+<li>static void setProperties(Properties props) 将系统属性设置为 Properties 参数。           </li>
+<li>static String setProperty(String key, String value) 设置指定键指示的系统属性。</li>
+</ul>
+<p><strong>Runtime:</strong><br>&emsp;(1)每个 Java 应用程序都有一个 Runtime 类实例，使应用程序能够与其运行的环境相连接。<br>  &emsp;&emsp;可以通过 getRuntime 方法获取当前运行时。 应用程序不能创建自己的 Runtime 类实例。</p>
+<p>&emsp;(2)该类没有构造函数，也就是它不能直接创建对象，但是它里里面的方法又不是静态的,故它一定有一个方法返回本类对象</p>
+<p>&emsp;(3)故该类是单例设计模式，保证在内存中只有一个对象</p>
+<p>&emsp;(4)方法摘要：</p>
+<ul>
+<li>Process exec(String command) 在单独的进程中执行指定的字符串命令</li>
+<li>void gc() 运行垃圾回收器。</li>
+<li>static Runtime getRuntime() 返回与当前 Java 应用程序相关的运行时对象</li>
+<li>void exit(int status) 通过启动虚拟机的关闭序列，终止当前正在运行的 Java 虚拟机</li>
+</ul>
+<ol>
+<li>Date:<br>(1)Date接口表示特定的瞬间，精确到毫秒<br>(2)构造方法</li>
+</ol>
+<ul>
+<li>Date() 分配 Date 对象并初始化此对象，以表示分配它的时间（精确到毫秒）。</li>
+<li>Date(long date) 分配Date对象并初始化此对象，以表示自从标准基准时间（称为“历元（epoch）”，</li>
+<li>即1970年1月1日00:00:00GMT）以来的指定毫秒数。</li>
+</ul>
+<p>(3)方法摘要：</p>
+<ul>
+<li>int compareTo(Date anotherDate) 比较两个日期的顺序。          </li>
+<li>boolean equals(Object obj) 比较两个日期的相等性。</li>
+</ul>
+<p><strong>Calendar：</strong><br>(1)直接已知子类： GregorianCalendar<br>(2)构造方法：</p>
+<ul>
+<li>protected  Calendar() 构造一个带有默认时区和语言环境的 Calendar。         </li>
+<li>protected  Calendar(TimeZone zone, Locale aLocale)  构造一个带有指定时区和语言环境的 Calendar。</li>
+</ul>
+<p>(3)方法摘要：</p>
+<ul>
+<li>static Calendar getInstance() 使用默认时区和语言环境获得一个日历。</li>
+</ul>
+<p><strong>jdk1.5的新特性</strong><br>(1)静态导入：</p>
+<ul>
+<li>**import语句可以导入一个类或某个包中的所有类</li>
+<li>**import static语句导入一个类中的某个静态方法或所有静态方法</li>
+<li>静态导入后，静态方法前面就不用写类名.方法的方式类调用</li>
+<li>**语法举例：</li>
+<li>import static java.lang.Math.sin;//导入一个静态方法</li>
+<li>import static java.lang.Math.*; //导入一个类中的所有静态方法</li>
+</ul>
+<p>静态导入使用注意：</p>
+<ul>
+<li>当类名重复时，需要制定具体的包名；</li>
+<li>当方法重名时，需要制定具体所属的对象或者类</li>
+</ul>
+<p>(2)可变参数：</p>
+<ul>
+<li>**可变参数的特点：</li>
+<li>*可变参数只能出现在参数列表的最后；</li>
+<li>*…位于变量类型和变量名之间，前后有无空格都可以;</li>
+<li>*调用可变参数的方法时，编译器为该可变参数隐含创建一个数组，</li>
+<li><p>在方法体中以数组的形式访问可变参数。</p>
+<p>可变参数举例：</p>
+</li>
+<li>*变量类型… 变量名 如 int… arr 表示可变参数数组</li>
+<li>*public static void show(String str , int… arr){}</li>
+</ul>
+<p>(3)增强for循环：<br>**语法：<br>for ( type 变量名：集合变量名 )  { … }<br>注意事项：</p>
+<ol>
+<li>迭代变量必须在( )中定义！</li>
+<li>集合变量可以是数组或实现了Iterable接口的集合类</li>
+</ol>
+<p>举例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> ...args)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> sum = x;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> arg:args) &#123;</div><div class="line">		sum += arg;</div><div class="line">	&#125;</div><div class="line"><span class="keyword">return</span> sum;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>增强for循环代替了迭代器使用的不爽，简化书写
+</strong>增强for循环局限性：<br>对集合或者数组进行遍历时，只能取元素，不能对集合进行操作</p>
+<p>(4)基本数据类型的自动装箱和拆箱<br>**基本数据类型<br>byte —&gt;Byte<br>short —&gt;Short<br>int —&gt;Integer<br>long —&gt;Long<br>float —&gt;Float<br>double —&gt; Double<br>char —&gt;Character<br>boolean —&gt; Boolean</p>
+<p>例子：<br>&emsp;装箱：自动把一个基本数据类型的数据装箱成一个该类型数据的对象引用<br>Integer i = 3;(jdk1.5之前这样写是不行的，编译报错)<br>&emsp;拆箱：自动把一个基本数据类型的对象引用拆箱成一个基本数据类型的数据，再参与运算<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Integer i = <span class="number">12</span>;</div><div class="line">sop(i+<span class="number">4</span>);</div><div class="line">**享元模式：</div><div class="line">Integer num1 = <span class="number">12</span>;</div><div class="line">Integer num2 = <span class="number">12</span>;</div><div class="line">System.out.println(num1 == num2);<span class="comment">//打印true</span></div><div class="line"></div><div class="line"></div><div class="line">Integer num5 = Integer.valueOf(<span class="number">12</span>);</div><div class="line">Integer num6 = Integer.valueOf(<span class="number">12</span>);</div><div class="line">System.out.println(num5 == num6);<span class="comment">//打印true</span></div><div class="line"></div><div class="line"></div><div class="line">Integer num3 = <span class="number">129</span>;</div><div class="line">Integer num4 = <span class="number">129</span>;</div><div class="line">System.out.println(num3 == num4);<span class="comment">//打印false</span></div></pre></td></tr></table></figure></p>
+<p>为什么前面的返回true而后面的运算返回false呢？<br>对于基本数据类型的整数，装箱成Integer对象时，如果该数值在一个字节内,(-128~127)，<br>一旦装箱成Integer对象后，就把它缓存到磁里面，当下次，又把该数值封装成Integer对象时<br>会先看磁里面有没有该对象，有就直接拿出来用，这样就节省了内存空间。因为比较小的整数，用的频率比较高，就没必要每个对象都分配一个内存空间。<br>这就是享元模式！比如26个英文字母，10个阿拉伯数字</p>
+</div><script type="text/javascript" src="/blog/js/share.js?v=0.0.0" async></script><a data-url="http://Invadrxt.github.io/blog/blog/2016/08/08/泛型/" data-id="cizzkbnwz0014pvfyiguuo0t4" class="article-share-link">分享到</a><div class="tags"><a href="/blog/tags/java基础/">java基础</a></div><div class="post-nav"><a href="/blog/2016/08/10/网络编程/" class="pre">网络编程</a><a href="/blog/2016/08/08/IO流:/" class="next">IO流</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://Invadrxt.github.io/blog"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/blog/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/blog/tags/java基础/" style="font-size: 15px;">java基础</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2017/03/07/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/06/ Struct2进阶一/">Struts2进阶一</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/27/Struct2入门/">Struts2入门</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/关于jdbc-util的封装/">关于jdbc-util的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/枚举/">枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/反射/">反射</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/网络编程/">网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/泛型/">泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流:/">IO流</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流/">IO流</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/blog/." rel="nofollow">晓甜不甜的博客！.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/blog/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/blog/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/blog/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/blog/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/blog/js/smartresize.js?v=0.0.0"></script></div></body></html>

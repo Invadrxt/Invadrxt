@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="welcome to wxt's blog!"><title>java基础(2) | 晓甜不甜的博客！</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/blog/favicon.ico"><link rel="apple-touch-icon" href="/blog/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/blog/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">java基础(2)</h1><a id="logo" href="/blog/.">晓甜不甜的博客！</a><p class="description"></p></div><div id="nav-menu"><a href="/blog/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/blog/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/blog/about/"><i class="fa fa-user"> 关于</i></a><a href="/blog/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">java基础(2)</h1><div class="post-meta">Jul 25, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h3 id="由于java对象中-还有一个是匿名对象，所以在这里我为大家介绍一下匿名对象的使用-："><a href="#由于java对象中-还有一个是匿名对象，所以在这里我为大家介绍一下匿名对象的使用-：" class="headerlink" title="由于java对象中 还有一个是匿名对象，所以在这里我为大家介绍一下匿名对象的使用~："></a>由于java对象中 还有一个是匿名对象，所以在这里我为大家介绍一下匿名对象的使用~：</h3><ul>
+<li>匿名对象：<ul>
+<li>匿名对象是对象的简化形式</li>
+<li>匿名对象两种使用情况</li>
+<li>当对对象方法仅进行一次调用的时</li>
+<li>匿名对象可以作为实际参数进行传递</li>
+</ul>
+</li>
+<li><p>封装(encapsiulation)</p>
+<ul>
+<li>封装：是指隐藏对象的属性和实现细节，仅对外提供公共访问方式</li>
+</ul>
+</li>
+<li><p>好处：</p>
+<ul>
+<li>将变化隔离</li>
+<li>便于使用</li>
+<li>提高重用性</li>
+<li>提高安全性</li>
+<li>封装原则：<br>&emsp; 将不需要对外提供的内容都隐藏起来吧属性都隐藏，提供公共方法对其访问</li>
+</ul>
+</li>
+<li><p>private关键字：</p>
+<ul>
+<li>是一个权限修饰符</li>
+<li>用于修饰成员（成员变量和成员函数）</li>
+<li>被私有化的成员只在本类中有效</li>
+</ul>
+</li>
+<li>常用之一：<ul>
+<li>将成员变量私有化，对外提供对应的set,get方法对其进行访问。提高对数据访问的安全性</li>
+<li>构造函数：<blockquote>
+<p>特点：<br>&emsp;1.函数名与雷鸣相同<br>&emsp;2.不用定义返回值类型<br>&emsp;3.不可以写return语句<br>作用：<br>&emsp;给对象进行初始化<br>注意：<br>&emsp;1.默认构造函数的特点<br>&emsp;2.多个构造函数是易重载的形式存在的<br>给大家准备了一个小练习：<br>&emsp;this关键字<br>&emsp;特点：this代表其所在函数所属对象的引用。<br>&emsp;换言之：this代本类对象的引用。<br>什么时候使用this关键字呢？<br>&emsp;当在函数内需要用到调用该函数的对象时，就用this<br>&emsp;this可以表示当前对象<br>&emsp;htis可以访问构造方法（注意：this调用只能放在构造函数第一行）</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>介绍string<br>类<br>&emsp;String:java.lang.Object–java.lang.String<br>&emsp;String str = “abc”</p>
+<p>等效于：<br>&emsp;char data[] = {‘a’, ‘b’, ‘c’};<br>&emsp;String str = new String(data);<br>&emsp;charAt<br>&emsp;public char charAt(int index)</p>
+<p>返回指定索引处的char 值。索引范围为从0 到length() - 1。序列的第一个char 值在索引0处，第二个在索引1 处，依此类推，这类似于数组索引。</p>
+<p>参数：<br>&emsp;index - char 值的索引值。<br>&emsp;返回：此字符串指定索引处的char 值。第一个char 值在索引0处。</p>
+<p>抛出：<br>&emsp;IndexOutOfBoundsException如果index 参数为负或小于此字符串的长度。</p>
+<p>例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"Welcome to Java!"</span>;</div><div class="line"><span class="keyword">char</span> a;</div><div class="line">StringBuffer b = <span class="keyword">new</span> StringBuffer();</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</div><div class="line">a = s.charAt(i);</div><div class="line">b.append(a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">System.out.println(b);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>1.String实例化的两种方式<ul>
+<li>String name1 = “haoren”;</li>
+<li>String name2 = new String(“huairen”);</li>
+</ul>
+</li>
+<li>2.两种实例化的区别<br>第一种<ul>
+<li>String name1 = “haoren”;</li>
+<li>String name2 = “haoren”;</li>
+<li>name1和name2指向了同一空间，“haoren”只存储了一次</li>
+</ul>
+</li>
+<li>2.第二种<ul>
+<li>String name4 = new String(“haoren”);</li>
+<li>String name5 = new String(“haoren”);</li>
+<li>name4和name5开辟了不同的空间</li>
+</ul>
+</li>
+<li>3.String内容的比较（equals）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//if("haoren".equals(name))&#123;</span></div><div class="line"><span class="keyword">if</span>(name.equals(<span class="string">"haoren"</span>))&#123;<span class="comment">//(注意不能这样写，如果name=null)就会报空指针异常</span></div><div class="line">    System.out.println(<span class="string">"ok"</span>);</div><div class="line">  ｝</div></pre></td></tr></table></figure>
+<p>//函数：charAt()<br>//String name = “我是好人，你是坏人！！！”;<br>//System.out.println(name.charAt(2));</p>
+<p>matches()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="string">"mazheng@sina.com"</span>.matches(<span class="string">"\\w+@\\w+[.]\\w+"</span>))&#123;</div><div class="line">		  	System.out.println(<span class="string">"合法！！！"</span>);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">		  	System.out.println(<span class="string">"不合法！！！"</span>);</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<p>split()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String[] a = <span class="string">"我是:好人"</span>.split(<span class="string">":"</span>);</div><div class="line">System.out.println(a[<span class="number">0</span>]);</div><div class="line"></div><div class="line">startsWith(String prefix)</div><div class="line">String name =<span class="string">"我是好人"</span>;</div><div class="line">System.out.println(name.startsWith(<span class="string">"我"</span>));</div><div class="line">endsWith(String suffix)</div><div class="line">String name =<span class="string">"我是好人"</span>;</div><div class="line">System.out.println(name.endsWith(<span class="string">"人"</span>));</div></pre></td></tr></table></figure></p>
+<p>字符串的内容不可改变<br>因此大家以后最好不要出现以下的写法（可以StringBuffer类完成）<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;&lt;li class="li1"&gt;&lt;span class="s1"&gt;&lt;/span&gt;&lt;span class="s2"&gt;trim() &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p class="p2"&gt;&lt;span class="s2"&gt;&lt;span&gt;   &lt;/span&gt;   String name ="   &lt;/span&gt;&lt;span class="s3"&gt;我是好人   &lt;/span&gt;&lt;span class="s2"&gt;";&lt;/span&gt;&lt;/p&gt;&lt;p class="p2"&gt;&lt;span class="s2"&gt;&lt;span&gt;  &lt;/span&gt;   System.out.println(name+"!!!");&lt;/span&gt;&lt;/p&gt;&lt;p class="p3"&gt;&lt;span class="s2"&gt;&lt;span&gt;  &lt;/span&gt;   System.out.println(name.trim()+"!!!");&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li class="li1"&gt;&lt;span class="s4"&gt;&lt;/span&gt;&lt;span class="s2"&gt;replace()&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p class="p2"&gt;&lt;span class="s2"&gt;&lt;span style="white-space:pre"&gt; &lt;/span&gt;   System.out.println(name.replace("&lt;/span&gt;&lt;span class="s3"&gt;好人&lt;/span&gt;&lt;span class="s2"&gt;","&lt;/span&gt;&lt;span class="s3"&gt;坏人&lt;/span&gt;&lt;span class="s2"&gt;"));&lt;/span&gt;&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"Welcome to Java!"</span>;    <span class="keyword">char</span> a;</div><div class="line">StringBuffer b = <span class="keyword">new</span> StringBuffer();    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;     a = s.charAt(i);     b.append(a);    &#125;</div><div class="line">System.out.println(b);</div><div class="line">其中关键的是如果把得到的字符放到字符串中，要用StringBuffer的append（<span class="keyword">char</span>）方法，要不然就要直接打印出来    String s = <span class="string">"Welcome to Java!"</span>;    <span class="keyword">char</span> a;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;   </div><div class="line">    a = s.charAt(i);</div><div class="line">    System.out.print(a);  </div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>之前为大家准备的小练习题的答案,如果有需要的可以联系我们：<br> qq群：131014179  个人邮箱：teemoe@cntv.cn</p>
+</div><script type="text/javascript" src="/blog/js/share.js?v=0.0.0" async></script><a data-url="http://Invadrxt.github.io/blog/blog/2016/07/25/java基础(2)/" data-id="cizzkbnw3000ipvfyxnybnxtz" class="article-share-link">分享到</a><div class="tags"><a href="/blog/tags/java基础/">java基础</a></div><div class="post-nav"><a href="/blog/2016/07/25/java基础(1)/" class="pre">java基础(1)</a><a href="/blog/2016/07/25/java中的运算符/" class="next">java中的运算符</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://Invadrxt.github.io/blog"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/blog/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/blog/tags/java基础/" style="font-size: 15px;">java基础</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2017/03/07/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/06/ Struct2进阶一/">Struts2进阶一</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/27/Struct2入门/">Struts2入门</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/关于jdbc-util的封装/">关于jdbc-util的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/枚举/">枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/反射/">反射</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/网络编程/">网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/泛型/">泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流:/">IO流</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流/">IO流</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/blog/." rel="nofollow">晓甜不甜的博客！.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/blog/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/blog/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/blog/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/blog/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/blog/js/smartresize.js?v=0.0.0"></script></div></body></html>

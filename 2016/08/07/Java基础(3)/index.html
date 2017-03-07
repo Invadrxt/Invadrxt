@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="welcome to wxt's blog!"><title>java基础(3) | 晓甜不甜的博客！</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/blog/favicon.ico"><link rel="apple-touch-icon" href="/blog/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/blog/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">java基础(3)</h1><a id="logo" href="/blog/.">晓甜不甜的博客！</a><p class="description"></p></div><div id="nav-menu"><a href="/blog/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/blog/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/blog/about/"><i class="fa fa-user"> 关于</i></a><a href="/blog/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">java基础(3)</h1><div class="post-meta">Aug 7, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h2 id="java基础-3"><a href="#java基础-3" class="headerlink" title="java基础(3)"></a>java基础(3)</h2><p>Object类：</p>
+<ul>
+<li>(1)是所有类的根类，超类。<br>&emsp;java中提供的类以及我们自定义的类都直接或者间接的继承自Object类。</li>
+<li>(2)Object类中的方法<ul>
+<li>A:void finalize()<br>&emsp;当垃圾回收器确定不存在对该对象的更多引用时，由对象的垃圾回收器调用此方法。</li>
+<li>B:Class getClass()<br>&emsp;获取对象的字节码文件的描述类，后面再讲反射的时候还会在说这个类。<br>&emsp;String name = s.getClass().getName();</li>
+<li>C:int hashCode()<br>&emsp;获取对象的哈希值。其实就是对象的内存地址值十进制表示</li>
+<li>D:String toString()<br>&emsp;返回对象的字符串表示。<br>表示格式：<br>&emsp;getClass().getName()+”@”+Integer.toHexString(hashCode());</li>
+</ul>
+</li>
+</ul>
+<p>package关键字</p>
+<ul>
+<li>(1)包：其实就是文件夹。用于区分不同包下相同的类名。</li>
+<li><p>(2)好处：</p>
+<ul>
+<li>A：对类文件进行分类管理。</li>
+<li>B：给类提供了多层命名空间<br>&emsp;&emsp;aaa.Demo<br>&emsp;&emsp;bbb.Demo</li>
+<li>C：写在程序文件的第一行。</li>
+<li>D：包也是一种封装形式。</li>
+</ul>
+</li>
+<li><p>import关键字</p>
+<ul>
+<li>(1)导入包的关键字</li>
+<li>(2)格式：</li>
+</ul>
+</li>
+<li>import 包名;<ul>
+<li>(3)注意：<br>&emsp;A:一个程序文件中只有一个package，可以有多个import。<br>&emsp;B:用来导包中的类，不导入包中的包。<br>&emsp;C:通常写import  mypack.Demo，明确自己使用的类。<br>&emsp;(4)关键字的顺序类，包，导包这些关键的顺序。<br>包 – &gt;  到包 – &gt; 类<br>&emsp;不同修饰符可以修饰哪些内容</li>
+</ul>
+</li>
+</ul>
+<p>&emsp;本类中 同一个包中 不同包中的子类中 不同包中<br>&emsp;&emsp;private OK<br>&emsp;&emsp;默认 OK Ok<br>&emsp;&emsp;protected OK  Ok   OK<br>&emsp;&emsp;public OK  Ok  OK   Ok</p>
+<p>&emsp;类 构造方法成员变量 成员方法<br>&emsp;&emsp;private OK OK OK<br>&emsp;&emsp;默认 Ok Ok Ok OK<br>&emsp;&emsp;protected OK OK Ok<br>&emsp;&emsp;public  Ok Ok OK OK<br>&emsp;&emsp;static OK Ok<br>&emsp;&emsp;final Ok OK OK<br>&emsp;&emsp;abstract Ok OK</p>
+<p>一般格式：</p>
+<ul>
+<li>成员变量：<ul>
+<li>权限修饰符+static/final+数据类型+成员变量名</li>
+<li>public static final int NUM = 10;</li>
+</ul>
+</li>
+<li>成员方法：<ul>
+<li>权限修饰符+static/final/abstract+返回类型+方法名<blockquote>
+<p>一般我们输出对象名的时候，其实底层调用的就是该对象的toString()方法。<br>这种返回没有意义，所以，我们会重写这个方法，显示类的成员变量信息。<br>E:boolean equals(Object obj)<br>用于比较两个对象的地址值是否相同。<br>我们获取对象后，比较它的地址值意义不大。所以也会对这个方法进行重写。<br>重写要完成什么功能，是根据需求定的。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>==和equals的用法：<ul>
+<li>A:==怎么用？<br>&emsp; <strong>可以用于比较基本数据类型，比较的就是基本数据类型的值是否相等。<br>&emsp; </strong>可以用于比较引用数据类型，比较的是对象的地址值是否相等。</li>
+<li>B:equals怎么用？<br>&emsp; equals只能用于比较引用数据类型的。<br>&emsp; <strong>Object提供的equals是用于比较对象地址值是否相同。<br>&emsp; </strong>自定义类中，如果重写了equals方法，那么就是按照你自己的需求来比较的。<br><strong><br>static关键字：(修饰成员变量时，可以实现数据共享)</strong><br>&emsp; 用于修饰成员（成员变量和成员函数）<br>被修饰后的成员具备以下特点：<br>&emsp; 随着类的加载而加载<br>&emsp; 优先于对象存在<br>&emsp; 被所有对象所共享<br>&emsp; 可以直接被类名调用<br>&emsp; 使用注意<br>&emsp; 静态方法只能访问静态成员<br>&emsp; 静态方法中不可以写this，super关键字<br>&emsp; 主函数是静态的</li>
+</ul>
+</li>
+</ul>
+<p><strong>static特点：</strong></p>
+<ul>
+<li>1，static是一个修饰符，用于修饰成员。</li>
+<li>2，static修饰的成员被所有的对象所共享。</li>
+<li>3，static优先于对象存在，因为static的成员随着类的加载就已经存在了。</li>
+<li>4，static修饰的成员多了一种调用方式，就可以直接被类名所调用 。 类名.静态成员 。</li>
+<li>5，static修饰的数据是共享数据，对象中的存储的是特有数据。</li>
+</ul>
+<p>成员变量和静态变量的区别？</p>
+<ul>
+<li>1，两个变量的生命周期不同。<ul>
+<li>成员变量随着对象的创建而存在，随着对象的被回收而释放。</li>
+<li>静态变量随着类的加载而存在，随着类的消失而消失。</li>
+</ul>
+</li>
+<li>2，调用方式不同。<ul>
+<li>成员变量只能被对象调用。</li>
+<li>静态变量可以被对象调用，还可以被类名调用。</li>
+</ul>
+</li>
+<li>3，别名不同。<ul>
+<li>成员变量也称为实例变量。</li>
+<li>静态变量称为类变量。</li>
+</ul>
+</li>
+<li>4，数据存储位置不同。<ul>
+<li>成员变量数据存储在堆内存的对象中，所以也叫对象的特有数据.</li>
+<li>静态变量数据存储在方法区(共享数据区)的静态区，所以也叫对象的共享数据.</li>
+</ul>
+</li>
+</ul>
+<p><strong>staitc什么时候使用？</strong></p>
+<ul>
+<li>1，静态变量。<br>&emsp;当分析对象中所具备的成员变量的值都是相同的 。<br>&emsp;这时这个成员就可以被静态修饰。<br>&emsp;只要数据在对象中都是不同的，就是对象的特有数据，必须存储在对象中，是非静态的。<br>&emsp;如果是相同的数据，对象不需要做修改，只需要使用即可，不需要存储在对象中，定义成静态的。</li>
+<li>2，静态函数。<br>&emsp;函数是否用静态修饰，就参考一点，就是该函数功能是否有访问到对象中的特有数据。<br>&emsp;简单点说，从源代码看，该功能是否需要访问非静态的成员变量，如果需要，该功能就是非静态的。<br>&emsp;如果不需要，就可以将该功能定义成静态的。当然，也可以定义成非静态，<br>&emsp;但是非静态需要被对象调用，而仅创建对象调用非静态的<br>&emsp;没有访问特有数据的方法，该对象的创建是没有意义。</li>
+</ul>
+<p>理解main方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span>  <span class="title">MainApp</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;args.length;i++)</div><div class="line">		 &#123;</div><div class="line">		 	System.out.println(args[i]);</div><div class="line">		 &#125;</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>代码块：</strong><br>&emsp;普通代码块：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">codeDemo</span></span>&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;	<span class="comment">//定义一个普通代码块</span></div><div class="line">				<span class="keyword">int</span> x  = <span class="number">30</span>; 	<span class="comment">//定义局部变量</span></div><div class="line">				System.out.println(<span class="string">"普通代码块"</span>);</div><div class="line">			&#125;</div><div class="line">				<span class="keyword">int</span> x = <span class="number">100</span>;	<span class="comment">//与局部变量名称相同</span></div><div class="line">				System.out.println(<span class="string">"代码块之外--"</span>+ x);</div><div class="line">		&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>构造代码块：构造代码块先于构造方法执行：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> Demo&#123;</div><div class="line">｛         <span class="comment">//定义构造代码块</span></div><div class="line">  System.out.println(<span class="string">"1构造代码款"</span>);</div><div class="line"> ｝</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="title">Demo</span><span class="params">()</span></span>&#123;      <span class="comment">//定义构造方法</span></div><div class="line">  System.out.println(<span class="string">"2构造方法"</span>);</div><div class="line"> &#125;</div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CodeDemo2</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">  <span class="keyword">new</span> Demo();   <span class="comment">//实例化对象</span></div><div class="line">  <span class="keyword">new</span> Demo();   <span class="comment">//实例化对象</span></div><div class="line">  <span class="keyword">new</span> Demo();  <span class="comment">//实例化对象</span></div><div class="line">  &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>static代码块：（静态代码块先于主方法执行，在类中静态代码块先于构造代码块执行，代码块又先于构造方法执行）</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticDemo1</span></span>&#123;</div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		System.out.println(<span class="string">"main代码块"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">new</span> Person();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line">	&#123;</div><div class="line">		System.out.println(<span class="string">"代码块"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">static</span>&#123;</div><div class="line">		System.out.println(<span class="string">"static代码块"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</div><div class="line">		System.out.println(<span class="string">"构造方法！"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</div><script type="text/javascript" src="/blog/js/share.js?v=0.0.0" async></script><a data-url="http://Invadrxt.github.io/blog/blog/2016/08/07/Java基础(3)/" data-id="cizzkbnv20003pvfydp4taszw" class="article-share-link">分享到</a><div class="tags"><a href="/blog/tags/java基础/">java基础</a></div><div class="post-nav"><a href="/blog/2016/08/07/单例设计模式(饿汗式,懒汉式)/" class="pre">单例设计模式(饿汗式,懒汉式)</a><a href="/blog/2016/08/01/java概述/" class="next">java概述</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://Invadrxt.github.io/blog"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/blog/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/blog/tags/java基础/" style="font-size: 15px;">java基础</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2017/03/07/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/06/ Struct2进阶一/">Struts2进阶一</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/27/Struct2入门/">Struts2入门</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/关于jdbc-util的封装/">关于jdbc-util的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/枚举/">枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/反射/">反射</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/网络编程/">网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/泛型/">泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流:/">IO流</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流/">IO流</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/blog/." rel="nofollow">晓甜不甜的博客！.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/blog/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/blog/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/blog/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/blog/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/blog/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="welcome to wxt's blog!"><title>集合框架 | 晓甜不甜的博客！</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/5.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/blog/favicon.ico"><link rel="apple-touch-icon" href="/blog/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/blog/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">集合框架</h1><a id="logo" href="/blog/.">晓甜不甜的博客！</a><p class="description"></p></div><div id="nav-menu"><a href="/blog/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/blog/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/blog/about/"><i class="fa fa-user"> 关于</i></a><a href="/blog/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">集合框架</h1><div class="post-meta">Aug 7, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><h2 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h2><p>集合框架</p>
+<ul>
+<li>1：String类：字符串(重点)<ul>
+<li>(1)多个字符组成的一个序列，叫字符串。<br>生活中很多数据的描述都采用的是字符串的。而且我们还会对其进行操作。<br>所以，java就提供了这样的一个类供我们使用。</li>
+<li>(2)创建字符串对象</li>
+</ul>
+</li>
+</ul>
+<p>A:String():无参构造<br><strong>举例：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String s = <span class="keyword">new</span> String();</div><div class="line">s = <span class="string">"hello"</span>;</div><div class="line">sop(s);</div></pre></td></tr></table></figure></p>
+<p>B:String(byte[] bys):传一个字节数组作为参数<br><strong>举例</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] bys = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>,<span class="number">101</span>&#125;;</div><div class="line">String s = <span class="keyword">new</span> String(bys);</div><div class="line">sop(s);</div></pre></td></tr></table></figure></p>
+<p>C:String(byte[] bys,int index,int length):把字节数组的一部分转换成一个字符串<br><strong>举例</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] bys = &#123;<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>,<span class="number">101</span>&#125;;</div><div class="line">String s = <span class="keyword">new</span> String(bys,<span class="number">1</span>,<span class="number">2</span>);</div><div class="line">sop(s);</div></pre></td></tr></table></figure></p>
+<p>D:String(char[] chs):传一个字符数组作为参数 <strong>*</strong><br><strong>举例</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span>[] chs = &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>&#125;;</div><div class="line">String s = <span class="keyword">new</span> String(chs);</div><div class="line">sop(s);</div></pre></td></tr></table></figure></p>
+<p>E:String(char[] chs,int index,int length):把字符数组的一部分转换成一个字符串 <strong>*</strong><br><strong>举例</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">char</span>[] chs = &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>&#125;;</div><div class="line"> String s = <span class="keyword">new</span> String(chs,<span class="number">1</span>,<span class="number">2</span>);</div><div class="line"> sop(s);</div><div class="line">F:String(String str):把一个字符串传递过来作为参数</div><div class="line"> <span class="keyword">char</span>[] chs = &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>&#125;;</div><div class="line"> String ss = <span class="keyword">new</span> String(s);</div><div class="line"> sop(ss);</div></pre></td></tr></table></figure></p>
+<p>G:直接把字符串常量赋值给字符串引用对象(最常用) <strong>*</strong><br><strong>举例</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"hello"</span>;</div><div class="line">sop(s);</div></pre></td></tr></table></figure></p>
+<p><strong>(3)面试题</strong><br>&emsp;A:请问String s = new String(“hello”);创建了几个对象。<br> 两个。一个”hello”字符串对象，在方法区的常量池；一个s对象，在栈内存。</p>
+<p>&emsp;B:请写出下面的结果<br>    String s1 = new String(“abc”);<br>    Strign s2 = new String(“abc”);<br>    String s3 = “abc”;<br>    String s4 = “abc”;</p>
+<pre><code>sop(s1==s2);  //false
+sop(s1==s3);  //false
+sop(s3==s4);  //true
+</code></pre><p>&emsp;C:字符串对象一旦被创建就不能被改变。<br>&emsp;指的是字符串常量值不改变。</p>
+<p><strong>(4)字符串中各种功能的方法</strong><br>&emsp;A:判断</p>
+<blockquote>
+<p>boolean equals(Object anObject):判断两个字符串的内容是否相同，复写了Object的方法<br> boolean equalsIgnoreCase(String anotherString):判断两个字符串的内容是否相同，<br>不区分大小写<br> boolean contains(String s):判断一个字符串中是否包含另一个字符串<br>注意：判断字符串是否包含特殊字符.直接表示为str.contains(“.”)<br>boolean endsWith(String suffix):测试此字符串是否以指定的后缀结束<br>boolean startsWith(String suffix):测试此字符串是否以指定的前缀开始<br>boolean isEmpty():测试字符串是否为空</p>
+</blockquote>
+<p>&emsp;B:获取</p>
+<blockquote>
+<p>int length():返回此字符串的长度<br> char charAt(int index):返回指定索引处的 char值<br> int indexOf(int ch):返回指定字符在此字符串中第一次出现处的索引。<br>int indexOf(int ch, int fromIndex):返回在此字符串中第一次出现指定字符处的索引，<br>  从指定的索引开始搜索。<br>int indexOf(String str):返回指定子字符串在此字符串中第一次出现处的索引。<br>int indexOf(String str, int fromIndex):返回指定子字符串在此字符串中第一次<br>出现处的索引，从指定的索引开始。<br><strong><em> int lastIndexOf(int ch)：返回指定字符在此字符串中最后一次出现处的索引。<br>int lastIndexOf(int ch, int fromIndex)<br>返回指定字符在此字符串中最后一次出现处的索引,从指定的索引处开始进行反向搜索。<br>int lastIndexOf(String str)<br>返回指定子字符串在此字符串中最右边出现处的索引。<br>int lastIndexOf(String str, int fromIndex)<br>返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索。<br>**</em></strong> String substring(int beginIndex) (注意：该方法substring的String是小写！！！)<br>返回一个新的字符串，它是此字符串的一个子字符串。<br>String substring(int beginIndex, int endIndex) (注意该方法的String是小写！！！)<br>返回一个新字符串，它是此字符串的一个子字符串,包含头不包含尾。</p>
+</blockquote>
+<p>&emsp;C:转换</p>
+<blockquote>
+<p>byte[] getBytes()：(很常用！)从字符串到字节数组的方法<br>void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)<br>将字符从此字符串复制到目标字符数组。<br> char[] toCharArray()：(很常用！)从字符串到字符数组的方法<br> static String copyValueOf(char[] data)<br>返回指定数组中表示该字符序列的 String。<br>static String copyValueOf(char[] data, int offset, int count)<br>返回指定数组中表示该字符序列的 String。<br> static String valueOf(数据类型):把该数据类型的数据转换成字符串。<br> String toLowerCase()：把字符串转换成小写<br>String toUpperCase()：把字符串转换成大写<br> 字符串的连接<br>String concat(String str):将指定字符串连接到此字符串的结尾。</p>
+</blockquote>
+<p>&emsp;D:替换</p>
+<blockquote>
+<p>String replace(char oldChar, char newChar):用新字符替换旧字符(替换所有)<br>String replace(String target, String replacement):用新的子串换旧串</p>
+</blockquote>
+<p>&emsp;E:分割</p>
+<blockquote>
+<p>String[] split(String regex)：根据指定的字符串把一个字符串分割成一个字符串数组</p>
+</blockquote>
+<p>&emsp;F: 去除字符串</p>
+<blockquote>
+<p>String trim():去除字符串的前后空格</p>
+</blockquote>
+<p>&emsp;G: 比较</p>
+<blockquote>
+<p>int compareTo(String anotherString)<br>按字典顺序比较两个字符串。<br>int compareToIgnoreCase(String str)<br>按字典顺序比较两个字符串，不考虑大小写。</p>
+</blockquote>
+<p>&emsp;(5)练习</p>
+<blockquote>
+<p>1:模拟登录,给三次机会,并提示还有几次.<br>默认的用户名和密码为admin。 区分大小写。<br>自己从键盘输入用户名和密码。</p>
+<p>2:给定一个字符串统计,统计大写字母,小写字母,数字出现的个数.<br><em>*</em>注意:不包括特殊字符<br>从键盘输入一个不包含特殊字符的字符串(只有26个字母和0-9组成)。</p>
+<p>3:给定一个字符串,把它变成首字母大写,其他字母小写的字符串.<br>从键盘输入一个字符串，全部26个字母组成的。</p>
+<p>4:子串在整串中出现的次数。<br>也就是说:获取一个字符串中,指定的字串在该字符串中出现的次数.<br>例如:<br>“nbasdnbafllgnbahjnbakqqqqlnba”  在这个字符串中，多有个nba.</p>
+<p>5:对字符串中字符进行自然顺序排序。<br>“basckd”–&gt;”abcdks”</p>
+</blockquote>
+<p>先留做思考内容：</p>
+<blockquote>
+<p>6:两个字符串的最大相同子串。<br>两个字符串的最大相同子串。<br>比如:<br>“sadabcdfghjkl”<br>werabcdtyu”</p>
+</blockquote>
+<p><strong>2：StringBuffer</strong><br>(1)字符串的缓冲区，是一个容器。<br>(2)它和String的区别<br>它是缓冲区可变长度的。<br>(3)构造方法<br>StringBuffer() 构造一个其中不带字符的字符串缓冲区，初始容量为 16 个字符。<br>StringBuffer(int num) 构造一个不带字符，但具有指定初始容量的字符串缓冲区。<br>StringBuffer(String str) 构造一个字符串缓冲区，并将其内容初始化为指定的字符串内容。<br>(4)常用方法</p>
+<p><strong>A:增加数据</strong></p>
+<blockquote>
+<p><strong>append ：添加各种类型的数据
+</strong>insert : 在容器指定位置插入各种类型的数据。</p>
+</blockquote>
+<p><strong>B:删除数据</strong></p>
+<blockquote>
+<p><strong>deleteCharAt : 删除指定位置的字符
+</strong>delete 还可以用于清空StringBuffer的缓冲区</p>
+</blockquote>
+<p><strong>C:替换</strong></p>
+<blockquote>
+<p>**replace</p>
+</blockquote>
+<p><strong>D:获取 </strong></p>
+<blockquote>
+<p>**charAt</p>
+</blockquote>
+<p><strong>E:长度和容量</strong></p>
+<blockquote>
+<p><strong>length() 元素的个数
+</strong>capacity 元素的理论值</p>
+</blockquote>
+<p><strong>F:获取元素的位置</strong></p>
+<blockquote>
+<p><strong>indexOf
+</strong>lastIndexOf</p>
+</blockquote>
+<p><strong>G:截取</strong></p>
+<blockquote>
+<p><strong>substring(int start)
+</strong>substring(int start,int end)</p>
+</blockquote>
+<p><strong>H:反转</strong></p>
+<blockquote>
+<p>**reverse</p>
+</blockquote>
+<p><strong>(5)字符串和StringBuffer的转换</strong></p>
+<blockquote>
+<p>String–&gt;StringBuffer通过构造:<br>如:StringBuffer sb = new StringBuffer(String str)<br>StringBuffer–String通过toString方法<br>如:StringBuffer sb = new StringBuffer();<br>  sb.toString();</p>
+</blockquote>
+<p><strong>3：StringBuilder</strong><br>和StringBuffer的功能是一样的，但是有区别：<br>&emsp;StringBuffer(JDK1.0)是线程安全的。<br>&emsp;StringBuilder(JDK1.5)不保证线程安全。<br>&emsp;一般来说，我们写的程序都是单线程的，所以，用StringBuilder，效率高。</p>
+<p>JDK版本的升级原则：<br>&emsp;A:提高效率<br>&emsp;B:提高安全性<br>&emsp;C:简化书写</p>
+<p><strong><br>&emsp;4：基本数据类型的对象包装类</strong></p>
+<blockquote>
+<p>(1)为了更方便的操作每个基本数据类型，java对其提供了很多的属性和方法供我们使用。<br>(2)用途：</p>
+<ul>
+<li>**将基本数据类型封装成对象的好处在于可以在对象中定义更多的功能操作该数据。</li>
+<li>**常用的操作之一：用于基本数据类型与字符串之间的转换。</li>
+</ul>
+</blockquote>
+<p>A:方便操作<br>B:用于和字符串进行相互转换</p>
+<p>&emsp;<strong>(3)基本数据类型和对象类型的对应</strong></p>
+<blockquote>
+<p>byte Byte<br>short Short<br>int Integer<br>long Long<br>float Float<br>double Double<br>boolean Boolean<br>char Character<br>(4)构造方法</p>
+</blockquote>
+<p>&emsp;字段摘要：</p>
+<blockquote>
+<p>static int MAX_VALUE 值为 2^31-1 的常量，它表示 int 类型能够表示的最大值<br>static int MIN_VALUE  值为 -2^31 的常量，它表示 int 类型能够表示的最小值<br>static Class<integer> TYPE 表示基本类型int的Class 实例</integer></p>
+</blockquote>
+<p>Integer(int value) 构造一个新分配的Integer对象，它表示指定的int值。<br>Inreger(String s) 注意：s必须是纯数字的字符串。否则会有异常NumberFormatException</p>
+<p><strong>(5)几个常用的方法</strong></p>
+<blockquote>
+<p>Integer.toBinaryString();<br>以二进制（基数 2）无符号整数形式返回一个整数参数的字符串表示形式。<br>Integer.toOctalString();<br>以八进制（基数 8）无符号整数形式返回一个整数参数的字符串表示形式。<br>Integer.toHexString();<br>以十六进制（基数 16）无符号整数形式返回一个整数参数的字符串表示形式。<br>static int Integer.parseInt(String s) 将字符串参数作为有符号的十进制整数进行解析,<br>字符串必须是int型范围内的数字字符串<br>static int Integer.parseInt(String s,int basic)<br>使用第二个参数指定的基数,将字符串参数解析为有符号的整数.<br>字符串必须是int型范围内的数字字符串<br>short shortValue() 以short类型返回该Integer的值。<br>int intValue() 以int类型返回该Integer的值。<br>static Integer valueOf(int num) 返回一个表示指定的 int 值的 Integer 实例。<br>static Integer valueOf(String s) 返回保存指定的String的值的Integer对象。<br>                static Integer valueOf(String s, int radix)<br>返回一个Integer对象，该对象中保存了用第二个参数提供的基数进行<br>解析时从指定的String中提取的值。</p>
+</blockquote>
+<p><strong><br>(6)类型转换</strong></p>
+<blockquote>
+<p>int – Integer<br>int num = 20;<br>A:Integer i = new Integer(num);<br>B:Integer i = Integer.valueOf(num);<br>Integer – int<br>Integer i = new Integer(20);<br>A:int num = i.intValue();<br>int – String<br>int num = 20;<br>A:String s = String.valueOf(num);<br>B:String s = “”+num;<br>C:String s = Integer.toString(num);<br>String – int<br>String s = “20”;<br>A:int num = Integer.parseInt(s);<br>B:Integer i = new Integer(s);或者Integer i = Integer.valueOf(s);<br> int num = i.intValue();</p>
+</blockquote>
+<p><strong>6、集合框架：</strong><br><strong>(1)为什么出现集合类？</strong></p>
+<blockquote>
+<p>面向对象对事物的体现都是以对象的形式，为了方便对多个对象的操作，就对对象进行存储。<br>集合就是存储对象最常用的一种方式.</p>
+</blockquote>
+<p><strong>(2)数组和集合都是容器，两者有何不同？</strong></p>
+<blockquote>
+<p><strong>数组长度固定，而集合长度是可变的
+</strong>数组值可以存储对象，还可以存储基本数据类型;而集合只能存储对象<br>**数组存储数据类型是固定的，而集合存储的数据类型不固定</p>
+</blockquote>
+<p><strong>(3)集合类的特点：</strong></p>
+<blockquote>
+<p>集合只能存储对象<br>集合的长度是可变的<br>集合可以存储不同类型的对象</p>
+</blockquote>
+<p><strong>(4)集合类框架(重要！！！要分清几种容器间的区别)：</strong></p>
+<blockquote>
+<p>**Collection:顶层接口<br>    |—&gt;List:列表，元素是有序的(元素带角标索引)，可以有重复元素,可以有null元素。<br>           |—&gt;ArrayList(JDK1.2):底层的数据结构是数组数据结构，特点是查询速度快(因为带角标)，<br>  但是增删速度稍慢,因为当元素多时，增删一个元素则所有元素的角标都得改变<br>  线程不同步。默认长度是10，当超过长度时，按50%延长集合长度。<br>   |—&gt;LinkedList(JDK1.2):底层数据结构式链表数据结构(即后面一个元素记录前一个)，<br>   特点：查询速度慢，因为每个元素只知道前面一个元素，但增删速度快<br>   因为元素再多，增删一个，只要让其前后的元素重新相连即可<br>   线程是不同步的。<br>   |—&gt;Vector(JDK1.0):底层数据结构是数组数据结构.特点是查询和增删速度都很慢。<br>默认长度是10，当超过长度时,按100%延长集合长度。<br>线程同步。<br>(Vector功能跟ArrayList功能一模一样，已被ArrayList替代)</p>
+</blockquote>
+<p>  ⚠️List使用注意！</p>
+<blockquote>
+<p>|—&gt;ArrayList:<br>(1)当往ArrayList里面存入元素没什么要求时，即只要求有序就行时；<br>(2)当往ArrayList里面存入元素要求不重复时，比如存入学生对象，当同名同姓时<br>  视为同一个人，则不往里面存储。则定义学生对象时，需复写equals方法<br>  public boolean equals(Object obj)<br>  {<br>if(!(obj instanceof Student))<br>return false;<br>Student stu = (Student)obj;<br>return this.name.equals(stu.name)&amp;&amp;this.age==stu.age;<br>  }<br>  则往ArrayList集合通过add存入学生对象时，集合底层自己会调用学生类的equals方法，<br>  判断重复学生则不存入。<br>注：对于List集合，无论是add、contains、还是remove方法，判断元素是否相同，<br>    都是通过复写equals方法来判断！</p>
+<blockquote>
+<p>|—&gt;LinkedList<br>(1)LinkLedist的特有方法：<br>boolean offerFirst(E e)  在此列表的开头插入指定的元素。<br>boolean offerLast(E e) 在此列表末尾插入指定的元素。<br>E peekFirst() 获取但不移除此列表的第一个元素；如果此列表为空，则返回 null。<br>E peekLast() 获取但不移除此列表的最后一个元素；如果此列表为空，则返回 null。<br>E pollFirst() 获取并移除此列表的第一个元素；如果此列表为空，则返回 null。<br>E pollLast() 获取并移除此列表的最后一个元素；如果此列表为空，则返回 null。<br>(2)通过LinkLedist的特有方法，可以实现某些数据特殊方式的存取，比如堆栈和队列。</p>
+</blockquote>
+</blockquote>
+<p>一般情况下，使用哪种List接口下的实现类呢？</p>
+<ol>
+<li>如果要求增删快，考虑使用LinkedList</li>
+<li>如果要求查询快，考虑使用ArrayList</li>
+<li>如果要求线程安全，考虑使用Vector。</li>
+</ol>
+<blockquote>
+<p>|—&gt;Set:集合，元素是无序的(因为没有索引)，元素不可以重复。可以有null元素。<br>   |—&gt;HashSet(JDK1.2):底层数据结构是哈希表、存取速度快、元素唯一、线程不同步。<br>保证性元素唯一的原理:<br>先判断元素的hashCode值是否相同，再判断两元素的equals方法是否为true<br>(往HashSet里面存的自定义元素要复写hashCode和equals方法，<br>以保证元素的唯一性！)</p>
+<blockquote>
+<p>|—&gt;TreeSet:底层数据结构式二叉树。可以对Set集合中的元素进行排序。元素有序、线程不同步。<br>保证元素唯一性的依据：compareTo方法return 0<br>TreeSet排序的第一种方式:让元素自身具备比较性，比如八种基本数据类型或则字符串，<br>实现Compareble接口,覆盖compareTo方法，<br>此方式是元素的自然顺序<br>TreeSet排序的第一种方式:当元素自身不具备比较性(比如存储学生对象时)或者具备的<br>比较性不是我们所需要的比较性时(比如想字符串的长度排序),<br>此时就需要让集合自身具备自定义的比较性。<br>那如何让集合自身具备比较性呢？可在集合初始化时，<br>就让集合具备比较方式。即定义一个类，<br>实现Comparator接口，覆盖compare方法。</p>
+</blockquote>
+</blockquote>
+<p><strong>Set集合使用注意事项：</strong></p>
+<blockquote>
+<p>(1)HashSet:<br>     通过new的方式往HashSet里面存的元素的hashCode都不同，但通常我们定义对象，<br>     比如学生对象时，虽然是new的两个学生对象，但是当他们name和age一样时，我们认为是<br>     同一个对象，所以为了保证元素的唯一性，我们通常在往HashSet集合里面存储元素时，<br>     在定义对象的类中通常复写hashCode和equals方法。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span></div><div class="line"> &#123;</div><div class="line"><span class="keyword">return</span> name.hashCode()+age*<span class="number">39</span>;</div><div class="line"> &#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span></div><div class="line"> &#123;</div><div class="line"><span class="keyword">if</span>(!(obj <span class="keyword">instanceof</span> Student))</div><div class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">Student stu = (Student)obj;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name.equals(stu.name)&amp;&amp;<span class="keyword">this</span>.age==stu.age;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p><strong> HashSet是如何保证元素唯一性的呢？</strong></p>
+<ol>
+<li>如果两元素的hashCode值不同，则不会调用equals方法</li>
+<li>如果两元素的hashCode值相同，则继续判断equals是否返回true；</li>
+<li>hashCode和equals方法虽然定义在自定义对象类里面，但不是我们手动调用</li>
+<li>而是往HashSet集合里面存储元素的时候，集合底层自己调用hashCode和equals</li>
+<li>它自己拿对象去判断，自己判断两元素是否是同一个元素。</li>
+</ol>
+<p><strong><br>(2)TreeSet:</strong></p>
+<ol>
+<li>TreeSet要求往里面存的元素具备比较性，否则会报错。</li>
+<li>TreeSet排序的第一种方式:让元素自身具备比较性</li>
+<li><p>定义对象类，实现Compareble接口,复写compareTo方法，此方式是元素的自然顺序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Comparable</span></span></div><div class="line"> &#123;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name,<span class="keyword">int</span> age)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">this</span>.name=name;</div><div class="line">		<span class="keyword">this</span>.age=age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object obj)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(!(obj <span class="keyword">instanceof</span> Student))</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"不是学生对象！"</span>);</div><div class="line">			Student stu = (Student)obj;</div><div class="line">			<span class="keyword">int</span> num = <span class="keyword">this</span>.age-stu.age;</div><div class="line">		<span class="keyword">if</span>(num==<span class="number">0</span>)</div><div class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.name.compareTo(stu.name);</div><div class="line">	<span class="keyword">return</span> num;</div><div class="line">	&#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><strong>TreeSet排序的第一种方式:让集合具备比较性</strong></p>
+</li>
+<li>当元素自身不具备比较性(比如存储学生对象时)或者具备的</li>
+<li>比较性不是我们所需要的比较性时(比如想字符串的长度排序),</li>
+<li>此时就需要让集合自身具备自定义的比较性。</li>
+<li>那如何让集合自身具备比较性呢？可在集合初始化时，</li>
+<li>就让集合具备比较方式。即定义一个类，</li>
+<li><p>实现Comparator接口，覆盖compare方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringLengthComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span></span></div><div class="line">&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Object obj1,Object obj2)</span></span></div><div class="line">&#123;</div><div class="line">String s1 = (String)obj1;</div><div class="line">String s2 = (String)obj2;</div><div class="line"><span class="keyword">int</span> num = <span class="keyword">new</span> Integer(s1.length()).compareTo(<span class="keyword">new</span> Integer(s2.length()));</div><div class="line"><span class="keyword">if</span>(num==<span class="number">0</span>)</div><div class="line"><span class="keyword">return</span> s1.compareTo(s2);</div><div class="line"><span class="keyword">return</span> num;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeSetTest</span></span></div><div class="line">&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">&#123;</div><div class="line">TreeSet ts = <span class="keyword">new</span> TreeSet(<span class="keyword">new</span> StringLengthComparator());</div><div class="line">ts.add(<span class="string">"addfg"</span>);</div><div class="line">ts.add(<span class="string">"dfg"</span>);</div><div class="line">ts.add(<span class="string">"agtuug"</span>);</div><div class="line">ts.add(<span class="string">"vgjkg"</span>);</div><div class="line">sop(ts);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>基本数据类型或字符串对象均实现了Comparable接口，故同种类型基本数据间具备比较性，即自然顺序。</p>
+</li>
+</ol>
+<p><strong>Map:顶层接口,该集合存储的是键值对,而且键是唯一的,Map和Set很像,Set集合底层就是使用了Map集合。</strong></p>
+<blockquote>
+<p>Map集合没有迭代器，要取出元素必须先将Map集合转换成Set集合才能遍历元素<br>  |—&gt;HashTable(JDK1.0):<br>底层是哈希表数据结构；<br>不可以使用null键和null值；<br>用作键的对象必须实现hashCode和equals方法来保证键的唯一性<br>线程同步，效率低<br>  |—&gt;HashMap(JDK1.2):<br>底层是哈希表数据结构；<br>允许使用null键和null值；<br>线程不同步，效率高；<br>保证元素唯一性的:<br>原理：先判断元素的hashCode值是否相同，再判断两元素的equals方法是否为true<br>(往HashSet里面存的自定义元素要复写hashCode和equals方法，<br>以保证元素的唯一性！)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> name.hashCode()+age*<span class="number">34</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>(!(obj <span class="keyword">instanceof</span> Student))</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">		Student stu = (Student)obj;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name.equals(stu.name)&amp;&amp;<span class="keyword">this</span>.age==stu.age;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMapDemo1</span> </span>&#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Map&lt;Student , String&gt; hmap = <span class="keyword">new</span> HashMap&lt;Student , String&gt;();</div><div class="line">			hmap.put(<span class="keyword">new</span> Student(<span class="string">"001"</span>,<span class="number">20</span>), <span class="string">"beijing"</span>);</div><div class="line">			hmap.put(<span class="keyword">new</span> Student(<span class="string">"002"</span>,<span class="number">25</span>), <span class="string">"hebei"</span>);</div><div class="line">			hmap.put(<span class="keyword">new</span> Student(<span class="string">"003"</span>,<span class="number">50</span>), <span class="string">"hainan"</span>);</div><div class="line">			hmap.put(<span class="keyword">new</span> Student(<span class="string">"001"</span>,<span class="number">20</span>), <span class="string">"beijing"</span>);</div><div class="line">		System.out.println(hmap.size());</div><div class="line">		Set&lt;Student&gt; keySet = hmap.keySet();</div><div class="line">		Iterator&lt;Student&gt; it = keySet.iterator();</div><div class="line">		<span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">			Student stu = it.next();</div><div class="line">			String addr = hmap.get(stu);</div><div class="line">			System.out.println(stu.getName()+<span class="string">".."</span>+stu.getAge()+<span class="string">"::"</span>+addr);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>  |—&gt;TreeMap(JDK1.0):</strong></p>
+<blockquote>
+<p>底层是二叉树结构；<br>允许使用null键和null值；<br>线程不同步；<br>可以给Map集合中的键进行排序.<br>TreeMap排序的第一种方式:让元素自身具备比较性，比如八种基本数据类型或则字符串，<br>实现Compareble接口,覆盖compareTo方法，<br>此方式是元素的自然顺序<br>TreeMap排序的第一种方式:当元素自身不具备比较性(比如存储学生对象时)或者具备的<br>比较性不是我们所需要的比较性时(比如想字符串的长度排序),<br>此时就需要让集合自身具备自定义的比较性。</p>
+</blockquote>
+<p>那如何让集合自身具备比较性呢？可在集合初始化时，<br>就让集合具备比较方式。即定义一个类，<br>实现Comparator接口，覆盖compare方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Comparable</span>&lt;<span class="title">Student</span>&gt;</span>&#123;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Student stu)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> num = <span class="keyword">new</span> Integer(<span class="keyword">this</span>.age).compareTo(<span class="keyword">new</span> Integer(stu.age));</div><div class="line">		<span class="keyword">if</span>(num==<span class="number">0</span>)</div><div class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name.compareTo(stu.name);</div><div class="line">	<span class="keyword">return</span> num;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMapDemo1</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">		Map&lt;Student , String&gt; tmap = <span class="keyword">new</span> TreeMap&lt;Student , String&gt;();</div><div class="line">			tmap.put(<span class="keyword">new</span> Student(<span class="string">"001"</span>,<span class="number">20</span>), <span class="string">"beijing"</span>);</div><div class="line">			tmap.put(<span class="keyword">new</span> Student(<span class="string">"002"</span>,<span class="number">25</span>), <span class="string">"hebei"</span>);</div><div class="line">			tmap.put(<span class="keyword">new</span> Student(<span class="string">"003"</span>,<span class="number">50</span>), <span class="string">"hainan"</span>);</div><div class="line">			tmap.put(<span class="keyword">new</span> Student(<span class="string">"001"</span>,<span class="number">20</span>), <span class="string">"beijing"</span>);</div><div class="line">		System.out.println(tmap.size());</div><div class="line">		Set&lt;Student&gt; keySet1 = tmap.keySet();</div><div class="line">		Iterator&lt;Student&gt; it1 = keySet1.iterator();</div><div class="line">		<span class="keyword">while</span>(it1.hasNext())&#123;</div><div class="line">			Student stu = it1.next();</div><div class="line">			String addr = tmap.get(stu);</div><div class="line">			System.out.println(stu.getName()+<span class="string">".."</span>+stu.getAge()+<span class="string">"::"</span>+addr);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>**Iterator：对collection进行迭代的迭代器.迭代器取代了Enumeration。<br>迭代器和枚举的区别：</p>
+<blockquote>
+<p>迭代器允许调用者利用定义良好的语义在迭代期间从迭代器所指向的collection移除元素<br>方法名称得到了改进，简化书写<br><strong>LisIterator：系列表迭代器，允许程序员按任一方向遍历列表、迭代期间修改列表
+</strong>Comparable：此接口强行对实现它的每个类的对象进行整体自然排序。使元素具备比较性<br><strong>Comparator：强行对某个对象collection进行整体排序的比较函数，使集合具备比较性
+</strong>Collections：此类完全由在 collection 上进行操作或返回 collection 的静态方法组成。<br>**Arrays：此类包含用来操作数组(比如排序和搜索)的各种静态方法</p>
+</blockquote>
+<p><strong><br>7、集合类各容器方法：</strong></p>
+<blockquote>
+<p>接口Collection方法摘要(没有构造方法)</p>
+<blockquote>
+<p>a)添加：<br>i.  boolean add(E e)<br>j.  boolean addAll(Collection c)</p>
+<p>b)删除：<br>i.  void clear():清空容器<br>j.  boolean remove(Objec object):<br>k.  boolean removeAll(Collection c):</p>
+<p>c)判断：<br>i.  boolean contains(Object object):判断是否包含此元素<br>j.  boolean containsAll(Collection c):判断是否包含一堆元素<br>k.  boolean equals(Object object):比较此collection与指定对象是否相等<br>m.  boolean isEmpty():判断是否集合为空</p>
+<p>d)获取：<br>h.  Iterator iterator():取出<br>i.  int hashCode():返回此collection的哈希值<br>j.  int size():返回此collection中元素的个数<br>k.  boolean retainAll(Collection c):取交集<br>m.  Object toArray():返回此collection中所有元素的数组<br>n.  T[] toArray(T[] a):返回包含此collection中所有元素的数值。</p>
+</blockquote>
+</blockquote>
+<p><strong>List集合子类及其方法</strong></p>
+<p>(1)List接口是Collection接口的一个子接口。<br>(2)List接口中的元素有如下特点(对角标的操作都是特有方法，因为有序)：<br>&emsp;A:元素有序(存储顺序和取出顺序一致)<br>&emsp;B:元素可以重复<br>(3)List接口中的特有方法<br>&emsp;A:add(int index,Object obj):在指定位置加入元素<br>&emsp;B:remove(int index):移除指定位置的元素<br>&emsp;C:set(int index,Object obj):修改指定位置的元素<br>&emsp;D:get(int index):获取指定位置的元素<br>&emsp;E:indexOf(Object obj):获取指定元素的位置<br>&emsp;F:subList(int start,int end):从一个大的List中截取一个小的List<br>&emsp;G:listIterator():返回一个List接口特有的迭代器</p>
+<p><strong>(1)、ArrayList：</strong><br>    |—&gt;构造方法摘要：(少用，不是重点)<br>ArrayList()：构造一个初始容量为 10 的空列表。<br>ArrayList(Collection&lt;? extends E&gt; c)： 构造一个包含指定 collection 的元素的列表，<br>ArrayList(int initialCapacity)： 构造一个具有指定初始容量的空列表。<br>    |—&gt;方法摘要：</p>
+<p><strong>|—&gt;添加：</strong></p>
+<blockquote>
+<p>boolean add(E e)： 将指定的元素添加到此列表的尾部。<br>void add(int index, E element)： 将指定的元素插入此列表中的指定位置。<br>boolean addAll(Collection&lt;? extends E&gt; c):按照指定 collection 的迭代器所返回的元素顺序，<br>将该 collection 中的所有元素添加到此列表的尾部<br>boolean addAll(int index, Collection&lt;? extends E&gt; c)： 从指定的位置开始，将指定 collection<br>      中的所有元素插入到此列表中。</p>
+</blockquote>
+<p><strong>|—&gt;删除：</strong></p>
+<blockquote>
+<p>void clear(): 移除此列表中的所有元素。<br>E remove(int index): 移除此列表中指定位置上的元素。<br>boolean remove(Object o): 移除此列表中首次出现的指定元素（如果存在）。<br>protected  void removeRange(int fromIndex, int toIndex):<br>移除列表中索引在 fromIndex（包括）和 toIndex（不包括）之间的所有元素。<br>boolean removeAll(Collection&lt;?&gt; c): 从列表中移除指定 collection 中包含的其所有元素</p>
+</blockquote>
+<p><strong>|—&gt;获取：</strong></p>
+<blockquote>
+<p>E get(int index): 返回此列表中指定位置上的元素。<br>int indexOf(Object o): 返回此列表中首次出现的指定元素的索引，或如果此列表不包含元素，则返回 -1。<br>int lastIndexOf(Object o) 返回此列表中最后一次出现的指定元素的索引，或如果此列表不包含索引，则返回 -1。<br>public List<e> subList(int fromIndex,int toIndex): 返回列表中指定的 fromIndex（包括 ）  和 toIndex（不包括）之间的部分视图。<br>Iterator<e> iterator(): 返回按适当顺序在列表的元素上进行迭代的迭代器。<br>ListIterator<e> listIterator(int index):返回列表中元素的列表迭代器(按适当顺序),从列表的指定位置开始。</e></e></e></p>
+</blockquote>
+<p><strong>|—&gt;修改：(特有方法！！)</strong></p>
+<blockquote>
+<p>E set(int index, E element): 用指定的元素替代此列表中指定位置上的元素。<br>(2)LinkedList:<br>|—&gt;构造方法摘要：<br>LinkedList(): 构造一个空列表。<br>LinkedList(Collection&lt;? extends E&gt; c): 构造一个包含指定 collection 中的元素的列表，<br>      这些元素按其 collection 的迭代器返回的顺序排列。<br>|—&gt;方法摘要:(特有的)</p>
+</blockquote>
+<p><strong>|—&gt;添加</strong></p>
+<blockquote>
+<p>void addFirst(E e): 将指定元素插入此列表的开头。<br>void addLast(E e): 将指定元素添加到此列表的结尾。<br>|—&gt;获取元素，但不删除元素<br>E get(int index): 返回此列表中指定位置处的元素。<br>E getFirst(): 返回此列表的第一个元素。<br>E getLast(): 返回此列表的最后一个元素。<br>|—&gt;获取元素且删除元素<br>E remove()： 获取并移除此列表的头（第一个元素）。<br>E remove(int index)： 移除此列表中指定位置处的元素。<br>boolean remove(Object o)： 从此列表中移除首次出现的指定元素（如果存在）。<br>E removeFirst()： 移除并返回此列表的第一个元素。<br>E removeLast(): 移除并返回此列表的最后一个元素。</p>
+</blockquote>
+<p><strong>|—&gt;修改</strong></p>
+<blockquote>
+<p>E set(int index, E element) 将此列表中指定位置的元素替换为指定的元素。<br>(3)Vector<br>|—&gt;构造方法摘要：<br>Vector(): 构造一个空向量，使其内部数据数组的大小为 10，其标准容量增量为零。<br>Vector(Collection&lt;? extends E&gt; c):  构造一个包含指定 collection 中的元素的向量，<br>   这些元素按其 collection 的迭代器返回元素的顺序排列。<br>|—&gt;方法摘要：</p>
+</blockquote>
+<p><strong>|—&gt;添加：</strong></p>
+<blockquote>
+<p>boolean add(E e): 将指定元素添加到此向量的末尾。<br>void add(int index, E element): 在此向量的指定位置插入指定的元素。<br>boolean addAll(Collection&lt;? extends E&gt; c):<br>将指定 Collection 中的所有元素添加到此向量的末尾，<br>按照指定 collection 的迭代器所返回的顺序添加这些元素。<br>boolean addAll(int index, Collection&lt;? extends E&gt; c): 在指定位置将指定 Collection 中的所有元素插入到此向量中。</p>
+</blockquote>
+<p><strong>|—&gt;获取:</strong></p>
+<blockquote>
+<p>Enumeration<e> elements(): 返回此向量的组件的枚举。<br>  Vector特有的取出方式:<br>  枚举和迭代器很像，其实枚举和迭代器是一样的，只是因为枚举的名称和方法的名称<br>  名字都过长，所以枚举被迭代器取代了。<br>|—&gt;枚举Enumeration的方法摘要：<br>boolean hasMoreElements(): 测试此枚举是否包含更多的元素。<br>E nextElement(): 如果此枚举对象至少还有一个可提供的元素，<br> 则返回此枚举的下一个元素。</e></p>
+</blockquote>
+<p>###Set集合子类及其方法<br><strong>(1)HashSet:它不保证set的迭代顺序;特别是它不保证该顺序恒久不变.此类允许使用null元素。</strong></p>
+<blockquote>
+<p>|—&gt;构造方法：<br>HashSet() 构造一个新的空 set，其底层 HashMap 实例的默认初始容量是 16，加载因子是 0.75。<br>HashSet(Collection&lt;? extends E&gt; c) 构造一个包含指定 collection 中的元素的新 set。<br>|—&gt;方法摘要：<br>boolean add(E e) 如果此 set 中尚未包含指定元素，则添加指定元素。<br>void clear() 从此 set 中移除所有元素。<br>Object clone() 返回此 HashSet 实例的浅表副本：并没有复制这些元素本身。<br>boolean contains(Object o) 如果此 set 包含指定元素，则返回 true。<br>boolean isEmpty() 如果此 set 不包含任何元素，则返回 true。<br>Iterator<e> iterator() 返回对此 set 中元素进行迭代的迭代器。<br>boolean remove(Object o) 如果指定元素存在于此 set 中，则将其移除。<br>int size() 返回此 set 中的元素的数量（set 的容量）。</e></p>
+</blockquote>
+<p><strong>(2)TreeSet:使用元素的自然顺序对元素进行排序，或者根据创建 set 时提供的 Comparator 进行排序.</strong></p>
+<blockquote>
+<p>|—&gt;构造方法：<br>TreeSet() 构造一个新的空 set，该set根据其元素的自然顺序进行排序。<br>TreeSet(Collection&lt;? extends E&gt; c)<br>构造一个包含指定 collection 元素的新 TreeSet，它按照其元素的自然顺序进行排序。<br>TreeSet(Comparator&lt;? super E&gt; comparator)  构造一个新的空 TreeSet，它根据指定比较器进行排序。</p>
+<blockquote>
+<p>|—&gt;方法摘要：</p>
+<blockquote>
+<p>添加：<br>boolean add(E e)  将指定的元素添加到此 set（如果该元素尚未存在于 set 中）。<br>boolean addAll(Collection&lt;? extends E&gt; c) 将指定 collection 中的所有元素添加到此 set 中。<br>删除：<br> void clear() 移除此 set 中的所有元素。<br> boolean remove(Object o)  将指定的元素从 set 中移除（如果该元素存在于此 set 中）。<br> E pollFirst() 获取并移除第一个（最低）元素；如果此 set 为空，则返回 null。<br> E pollLast() 获取并移除最后一个（最高）元素；如果此 set 为空，则返回 null。<br>获取：<br> Iterator<e> iterator()  返回在此 set 中的元素上按升序进行迭代的迭代器。<br> E first() 返回此 set 中当前第一个（最低）元素。<br> E last() 返回此 set 中当前最后一个（最高）元素。<br> int size()  返回 set 中的元素数（set 的容量）。<br>判断：<br>boolean isEmpty()  如果此 set 不包含任何元素，则返回 true。<br>boolean contains(Object o) 如果此 set 包含指定的元素，则返回 true。<br>**Map:将键映射到值的对象。Map集合没有迭代器！Map集合特点：该集合存储键值对。而且键是唯一的。</e></p>
+</blockquote>
+<p>|—&gt;方法摘要：</p>
+<blockquote>
+<p>|—&gt;添加：<br>     V put(K key, V value) 将指定的值与此映射中的指定键关联（可选操作）。<br>     void putAll(Map&lt;? extends K,? extends V&gt; m) 从指定映射中将所有映射关系复制到此映射中<br>|—&gt;删除：<br>              void clear()  从此映射中移除所有映射关系（可选操作）。<br>     V remove(Object key) 如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。<br>|—&gt;判断<br>     boolean containsKey(Object key) 如果此映射包含指定键的映射关系，则返回 true。<br>              boolean containsValue(Object value) 如果此映射将一个或多个键映射到指定值，则返回 true。<br>              boolean isEmpty() 如果此映射未包含键-值映射关系，则返回 true。<br>           |—&gt;获取<br>     int size() 返回此映射中的键-值映射关系数。<br>              Collection<v> values()  返回此映射中包含的值的 Collection 视图。</v></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p> <strong> 重点：Map集合没有迭代器，以下是Map的两种取出方式：</strong><br>      第一种：Set<k> keySet()</k></p>
+<pre><code>&gt;返回此映射中包含的键的Set视图，将Map集合中所有的键存入Set集合，然后再通过Set集合的
+迭代器取出所有的键，再根据get方法获取每个键的值；
+  第二种：Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()
+</code></pre><blockquote>
+<p>返回此映射中包含的映射关系的Set视图，将Map集合中的映射关系存入到Set集合中，<br>这个映射关系的数据类型是Map.entry,再通过Map.Entry类的方法再要取出关系里面的键和值<br>Map.Entry的方法摘要：<br>boolean equals(Object o)  比较指定对象与此项的相等性。<br>K getKey()  返回与此项对应的键。<br>V getValue() 返回与此项对应的值。<br>int hashCode() 返回此映射项的哈希码值。<br>V setValue(V value) 用指定的值替换与此项对应的值(特有！！！)。</p>
+</blockquote>
+<p><strong>Map集合和Collection集合的区别？</strong><br>1.Map中一次存储是键值对。</p>
+<blockquote>
+<p>Collection中一次存储是单个元素。</p>
+</blockquote>
+<p>2.Map的存储使用的put方法。</p>
+<blockquote>
+<p>Collection存储使用的是add方法。</p>
+</blockquote>
+<p>3.Map集合没有迭代器，Map的取出，是将Map转成Set，在使用迭代器取出。</p>
+<blockquote>
+<p>Collection取出，使用就是迭代器。</p>
+</blockquote>
+<p>4.如果对象很多，必须使用集合存储。</p>
+<blockquote>
+<p>如果元素存在着映射关系，可以优先考虑使用Map存储或者用数组，<br>如果没有映射关系，可以使用Collection存储。</p>
+</blockquote>
+<p><strong>迭代器：Iterator(Map集合没有迭代器)</strong><br>(1)迭代器就是取出集合元素的方式<br>(2)迭代器的作用</p>
+<blockquote>
+<p>因为每个集合中元素的取出方式都不一样，于是就把元素的取出方式进行抽取，并定义在集合内部，<br>这样取出方式就可以直接访问集合内部的元素；<br>而每个容器的数据结构不同，所以取出动作的细节也不一样，但是有共性内容：判断和取出。<br>那么就将共性内容进行抽取，从而形成了接口Iterater</p>
+</blockquote>
+<p>(3)获取迭代器的方法：</p>
+<blockquote>
+<p>Iterator<e> iterator() 返回在此 collection 的元素上进行迭代的迭代器。<br>Iterator<e> iterator() 返回在此 set 中的元素上进行迭代的迭代器。     </e></e></p>
+</blockquote>
+<p>(3)迭代器方法：</p>
+<blockquote>
+<p>boolean hasNext() 如果仍有元素可以迭代,则返回 true。<br>E next() 返回迭代的下一个元素。<br>void remove() 从迭代器指向的collection中移除迭代器返回的最后一个元素（可选操作）。</p>
+</blockquote>
+<p><strong>列表迭代器：ListIterator</strong><br>(1)List集合特有的迭代器ListIterator是Iterator的子接口，在迭代时，不可以通过集合对象的</p>
+<blockquote>
+<p>方法操作集合中的元素，因为会发生ConcurrentModificationException(当方法检测到对象的并发修改，但不允许这种修改时，抛出此异常)</p>
+</blockquote>
+<p>(2)Iterator方法有限，只能对元素进行判断、取出和删除的操作</p>
+<blockquote>
+<p>ListIterator可以对元素进行添加和修改动作等。</p>
+</blockquote>
+<p>(3)获取列表迭代器方法：</p>
+<blockquote>
+<p>ListIterator<e> listIterator() 返回此列表元素的列表迭代器（按适当顺序）。<br>ListIterator<e> listIterator(int index)<br>返回此列表中的元素的列表迭代器（按适当顺序），从列表中指定位置开始。</e></e></p>
+</blockquote>
+<p>(4)列表迭代器方法：</p>
+<blockquote>
+<p>void add(E e) 将指定的元素插入列表（可选操作）。<br>boolean hasPrevious()  如果以逆向遍历列表，列表迭代器有多个元素，则返回 true。<br>int nextIndex() 返回对 next 的后续调用所返回元素的索引。<br>E previous() 返回列表中的前一个元素。<br>int previousIndex() 返回对 previous 的后续调用所返回元素的索引。<br>void set(E e) 用指定元素替换 next 或 previous 返回的最后一个元素（可选操作）。</p>
+</blockquote>
+<p><strong>堆栈和队列</strong><br>堆栈：先进后出，比如杯子里的水<br>队列：先进先出，比如水管的水</p>
+<p><strong>集合类各种容器的使用注意细节：</strong><br>(1)迭代器：</p>
+<blockquote>
+<p>迭代器的next方法是自动向下取元素，要避免出现NoSuchElementException。<br> 也就是在迭代循环中调用一次next方法一次就要hasNext判断一次，比如语句<br> sop(it.next()+”…”+it.next())会发生上述异常。<br>迭代器的next方法返回值类型是Object，所以要记得类型转换,应用泛型后就不用强转</p>
+</blockquote>
+<p>(2)List集合：</p>
+<blockquote>
+<p>List集合里面的元素因为是带角标，所以List集合里面的元素都是有序的，<br> 另外List集合可以包含重复元素，也可以包含null。<br>List集合有迭代器Iterator，还有一个特有迭代器列表ListIterator<br>List集合中判断元素是否相同都是用equals方法，无论contains、remove都依赖equals方法<br> 比如往ArrayList集合里面存放学生，同名同年龄视为同一个人，此时就需要在学生类复写Object类<br> 里面的equals方法(非常重要！！！要注意！！)</p>
+</blockquote>
+<p>(3)Set集合：</p>
+<blockquote>
+<p>Set接口里面存放的是元素是无序的，不可以有重复元素，可以包含null<br>Set集合只有一种取出方式，就是迭代器Iterator<br>Set集合功能和Collection是一致的，没有特殊方法</p>
+</blockquote>
+<p>   <strong>|—&gt;HashSet:</strong></p>
+<blockquote>
+<p>集合里面存放的元素是无序的，唯一的<br>底层数据结构是哈希表，哈希表结构的数据都是无序的，哈希表结构的操作效率都高效<br>线程不同步<br>保证元素唯一性的原理是：通过复写hashCode和equals方法<br>如果两元素的hashCode值相同，则继续判断两元素equals是否为真<br>如果两元素的hashCode值不同，则不会调用equals方法。<br>当我们往HashSet集合存放自定义的元素时(比如学生对象)，通常都要复写hashCode和equals方法，<br> 而且hashCode和equals方法不通过我们调用，HashSet集合底层内部自己调用，自己拿元素去比较</p>
+</blockquote>
+<p>  <strong> |—&gt;TreeSet</strong></p>
+<blockquote>
+<p>TreeSet集合可以对存放的元素进行排序，弥补了Set集合元素无序的缺点，且元素是唯一的<br>底层数据结构是二叉树，二叉树结构都是有序的<br>线程不同步<br>TreeSet集合要求往集合里存放的元素自身具备比较性，否则会报错<br>TreeSet集合保证元素唯一性的依据是：通过compareTo或者compare方法中的来保证元素的唯一性。<br>TreeSet排序的第一种方式:让元素自身具备比较性，<br>定义元素类实现Compareble接口，覆盖compare方法，<br>此方式是元素的自然顺序。<br>TreeSet排序的第二种方式:让集合具备比较性<br>当元素自身不具备比较性或者具备的比较性不是<br>我们所需要的比较性时，此时就需要让集合具备自定义的比较性。<br>那如何让集合自身具备比较性呢？<br>可在集合初始化时，就让集合具备比较方式。<br>即定义一个类，实现Comparator接口，覆盖compare方法。<br>注：<br><strong>判断元素唯一时，当主要条件一样时，判断次要条件
+</strong>两种排序方式都在时，以比较器为主！！！</p>
+</blockquote>
+<p><strong>(4)Map集合：</strong><br>|–Hashtable</p>
+<blockquote>
+<p>底层是哈希表结构<br>线程安全的，并且键和值不能为null。</p>
+</blockquote>
+<p>|–HashMap</p>
+<blockquote>
+<p>底层是哈希表结构<br>线程不安全的，键和值可以为null。</p>
+</blockquote>
+<p>|–LinkedHashMap</p>
+<blockquote>
+<p>底层是链表和哈希表<br>线程不安全</p>
+</blockquote>
+<p>|–TreeMap</p>
+<blockquote>
+<p>底层是二叉树<br>线程不安全的</p>
+</blockquote>
+<p>12、如果你想将一组对象按一定顺序存取，在不考虑并发访问的情况下会使用<strong><strong>C_</strong></strong> ,<br>反之则会使用<strong><strong>A_</strong></strong>；如果你想存储一组无序但唯一的对象，你会使用<strong>_B<em>__</em></strong> ;<br>如果你想按关键字对对象进行存取，在不考虑并发访问的情况下会使用<strong>_D<em>__</em></strong> ,反之则会使用<strong>_</strong>E<em>__</em>。<br>A. Vector<br>B. HashSet<br>C. ArrayList<br>D. HashMap<br>E. Hashtable</p>
+</div><script type="text/javascript" src="/blog/js/share.js?v=0.0.0" async></script><a data-url="http://Invadrxt.github.io/blog/blog/2016/08/07/集合框架/" data-id="cizzkbnxh001epvfyhq08kv04" class="article-share-link">分享到</a><div class="tags"><a href="/blog/tags/java基础/">java基础</a></div><div class="post-nav"><a href="/blog/2016/08/08/IO流/" class="pre">IO流</a><a href="/blog/2016/08/07/多线程/" class="next">多线程</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://Invadrxt.github.io/blog"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/blog/tags/Struts2/" style="font-size: 15px;">Struts2</a> <a href="/blog/tags/java基础/" style="font-size: 15px;">java基础</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/blog/2017/03/07/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/09/06/ Struct2进阶一/">Struts2进阶一</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/27/Struct2入门/">Struts2入门</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/关于jdbc-util的封装/">关于jdbc-util的封装</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/枚举/">枚举</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/反射/">反射</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/10/网络编程/">网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/泛型/">泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流:/">IO流</a></li><li class="post-list-item"><a class="post-list-link" href="/blog/2016/08/08/IO流/">IO流</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/blog/." rel="nofollow">晓甜不甜的博客！.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/blog/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/blog/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/blog/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/blog/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/blog/js/smartresize.js?v=0.0.0"></script></div></body></html>
